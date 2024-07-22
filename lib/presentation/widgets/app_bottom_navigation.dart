@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/app_size.dart';
-import 'package:portfolio/presentation/extensions/extension.dart';
+import 'package:portfolio/app/extension.dart';
 import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
 
