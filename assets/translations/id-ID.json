@@ -1,0 +1,19 @@
+{
+    "home_title": "Beranda",
+    "education_title": "Pendidikan",
+    "experience_title": "Pengalaman",
+    "skill_title": "Keahlian",
+    "greeting_title": "Halo! Saya",
+    "contact_me_title": "Hubungi saya",
+    "see_my_work_title": "Lihat kerjaan saya",
+    "introduce_title": "Mobile Developer dengan pengalaman lebih dari 2 tahun mengembangkan aplikasi mobile menggunakan framework flutter",
+    "highschool_title": "Sekolah Menengah Atas",
+    "college_title": "Perguruan Tinggi",
+    "gpa_title": "IPK",
+    "bachelor_title": "Sarjana",
+    "scholarship_title": "Penerima",
+    "work_experience_title": "Pengalaman kerja",
+    "desc_job": "Mengembangkan aplikasi mobile menggunakan framework flutter",
+    "certified_by_title": "Disertifikasi oleh",
+    "desc_skill": "Mahir mengembangkan aplikasi dengan menerapkan"
+}

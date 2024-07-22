@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/app/app_size.dart';
 import 'package:portfolio/presentation/extensions/extension.dart';
+import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
 
 class AppBottomNavigation extends StatelessWidget {
@@ -13,7 +15,7 @@ class AppBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       child: Container(
-        width: double.infinity,
+        width: AppSize.getAppWidth(context),
         height: 65,
         color: ColorRes.secondary,
         child: Row(
@@ -21,26 +23,26 @@ class AppBottomNavigation extends StatelessWidget {
             TabIcon(
               isActive: currentIndex == 0,
               onPress: () => onTap,
-              selectedIconPath: '',
-              unselectedIconPath: '',
+              selectedIconPath: AppSvgAssetsSelected.home,
+              unselectedIconPath: AppSvgAssetsUnselected.home,
             ),
             TabIcon(
               isActive: currentIndex == 1,
               onPress: () => onTap,
-              selectedIconPath: '',
-              unselectedIconPath: '',
+              selectedIconPath: AppPngAssetsSelected.education,
+              unselectedIconPath: AppPngAssetsUnselected.education,
             ),
             TabIcon(
               isActive: currentIndex == 2,
               onPress: () => onTap,
-              selectedIconPath: '',
-              unselectedIconPath: '',
+              selectedIconPath: AppPngAssetsSelected.job,
+              unselectedIconPath: AppPngAssetsUnselected.job,
             ),
             TabIcon(
               isActive: currentIndex == 3,
               onPress: () => onTap,
-              selectedIconPath: '',
-              unselectedIconPath: '',
+              selectedIconPath: AppPngAssetsSelected.skill,
+              unselectedIconPath: AppPngAssetsUnselected.skill,
             ),
           ],
         ),
@@ -80,7 +82,7 @@ class TabIcon extends StatelessWidget {
               width: isActive ? 24 : 0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: ColorRes.primary,
+                color: ColorRes.third,
               ),
             ),
             Expanded(
