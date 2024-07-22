@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/presentation/features/home/home_screen.dart';
+import 'package:portfolio/presentation/features/main/main_screen.dart';
 import 'package:portfolio/presentation/resources/theme_res.dart';
 
 class PortfolioApp extends StatelessWidget {
@@ -10,7 +10,7 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
       title: 'Portfolio',
       theme: portfolioTheme(false),
-      home: const Homescreen(),
+      home: const MainScreen(),
     );
   }
 }

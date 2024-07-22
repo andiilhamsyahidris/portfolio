@@ -59,3 +59,47 @@ extension BorderExtension on Widget {
             BoxDecoration(border: Border.all(color: color, width: width)),
       );
 }
+
+extension BorderRadiusExtension on Widget {
+  Widget borderRadiusAll(double value) => Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(value))),
+        child: this,
+      );
+
+  Widget borderRadiusVertical({double top = 0.0, double bottom = 0.0}) =>
+      Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(
+          top: Radius.circular(top),
+          bottom: Radius.circular(bottom),
+        )),
+        child: this,
+      );
+
+  Widget borderRadiusHorizontal({double left = 0.0, double right = 0.0}) =>
+      Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.horizontal(
+          left: Radius.circular(left),
+          right: Radius.circular(right),
+        )),
+        child: this,
+      );
+
+  Widget borderRadiusOnly(
+          {double topLeft = 0.0,
+          double topRight = 0.0,
+          double bottomLeft = 0.0,
+          double bottomRight = 0.0}) =>
+      Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(topLeft),
+              topRight: Radius.circular(topRight),
+              bottomLeft: Radius.circular(bottomLeft),
+              bottomRight: Radius.circular(bottomRight)),
+        ),
+        child: this,
+      );
+}
