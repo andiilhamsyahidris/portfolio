@@ -1,9 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/app_size.dart';
 import 'package:portfolio/app/extension.dart';
+import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
 import 'package:portfolio/presentation/resources/string_res.dart';
 import 'package:portfolio/presentation/widgets/app_filled_button.dart';
+import 'package:portfolio/presentation/widgets/app_project_card.dart';
 import 'package:portfolio/presentation/widgets/app_text.dart';
 
 class Homepage extends StatefulWidget {
@@ -15,47 +18,89 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(
-            child: AppText.semiBold(
-              '${StringResHome.greetingTitle.tr()} Andi Ilhamsyah Idris',
-            ).padOnly(bottom: 12.0),
-          ),
-          Flexible(
-            child: AppText.medium(
-              "A Mobile Developer based in Jakarta, Indonesia",
-            ).padOnly(bottom: 12.0),
-          ),
-          Flexible(
-            child: AppText(StringResHome.introduceTitle.tr()),
-          ),
-          Flexible(
-            child: Row(
+          SizedBox(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppFilledButton(
-                  color: ColorRes.third,
-                  text: StringResHome.contactMeTitle.tr(),
-                  radius: 8.0,
-                  onTap: () {},
-                ),
-                AppFilledButton(
-                  color: ColorRes.secondary,
-                  text: StringResHome.seeMyWorkTitle.tr(),
-                  radius: 8.0,
-                  onTap: () {},
-                ),
+                const CircleAvatar(
+                  backgroundImage: AssetImage(AppPngAssets.photo),
+                  radius: 42,
+                ).marginOnly(bottom: 16.0),
+                AppText.semiBold(
+                  '${StringResHome.greetingTitle.tr()} Andi Ilhamsyah Idris',
+                  fontSize: 30,
+                  overflow: TextOverflow.clip,
+                ).marginOnly(bottom: 21.0),
+                AppText.medium(
+                  "A Mobile Developer based in Jakarta, Indonesia",
+                  overflow: TextOverflow.clip,
+                  fontSize: 20,
+                ).marginOnly(bottom: 18.0),
+                AppText(
+                  StringResHome.introduceTitle.tr(),
+                  overflow: TextOverflow.clip,
+                ).onFlexible(),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AppFilledButton(
+                      color: ColorRes.third,
+                      text: StringResHome.contactMeTitle.tr(),
+                      radius: 8.0,
+                      onTap: () {},
+                    ),
+                    21.width,
+                    AppFilledButton(
+                      color: ColorRes.secondary,
+                      textColor: ColorRes.third,
+                      text: StringResHome.seeMyWorkTitle.tr(),
+                      radius: 8.0,
+                      onTap: () {},
+                    ),
+                  ],
+                ).marginSymmetric(vertical: 18.0),
               ],
             ),
-          ).padSymmetric(vertical: 12.0),
+          ).marginSymmetric(
+            vertical: 34,
+            horizontal: 18,
+          ),
+          Container(
+            color: ColorRes.primary,
+            width: AppSizeConfig.screenWidth,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppText.medium(
+                  StringResHome.latestProjectTitle.tr(),
+                  fontSize: 18,
+                ).marginOnly(bottom: 24.0),
+                SizedBox(
+                  height: getScreenHeight(350),
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => const AppProjectCard(),
+                    separatorBuilder: (context, index) => 12.width,
+                    itemCount: 3,
+                  ),
+                ),
+              ],
+            ).padSymmetric(horizontal: 16.0, vertical: 36.0),
+          )
         ],
-      ).marginSymmetric(
-        vertical: 12,
-        horizontal: 8,
       ),
     );
   }

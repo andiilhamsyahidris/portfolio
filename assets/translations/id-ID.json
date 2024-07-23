@@ -3,6 +3,7 @@
     "education_title": "Pendidikan",
     "experience_title": "Pengalaman",
     "skill_title": "Keahlian",
+    "portfolio_title": "Portofolio",
     "greeting_title": "Halo! Saya",
     "contact_me_title": "Hubungi saya",
     "see_my_work_title": "Lihat kerjaan saya",
@@ -15,5 +16,6 @@
     "work_experience_title": "Pengalaman kerja",
     "desc_job": "Mengembangkan aplikasi mobile menggunakan framework flutter",
     "certified_by_title": "Disertifikasi oleh",
-    "desc_skill": "Mahir mengembangkan aplikasi dengan menerapkan"
+    "desc_skill": "Mahir mengembangkan aplikasi dengan menerapkan",
+    "latest_project_title": "Project Terbaru"
 }

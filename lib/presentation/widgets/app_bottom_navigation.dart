@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/app_size.dart';
 import 'package:portfolio/app/extension.dart';
 import 'package:portfolio/presentation/resources/asset_res.dart';
@@ -15,32 +14,36 @@ class AppBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       child: Container(
-        width: AppSize.getAppWidth(context),
+        width: AppSizeConfig.screenWidth,
         height: 65,
-        color: ColorRes.secondary,
+        decoration: BoxDecoration(
+            color: ColorRes.secondary,
+            border: Border(
+              top: BorderSide(color: ColorRes.dividerColor!),
+            )),
         child: Row(
           children: [
             TabIcon(
               isActive: currentIndex == 0,
-              onPress: () => onTap,
-              selectedIconPath: AppSvgAssetsSelected.home,
-              unselectedIconPath: AppSvgAssetsUnselected.home,
+              onPress: onTap,
+              selectedIconPath: AppPngAssetsSelected.home,
+              unselectedIconPath: AppPngAssetsUnselected.home,
             ),
             TabIcon(
               isActive: currentIndex == 1,
-              onPress: () => onTap,
+              onPress: onTap,
               selectedIconPath: AppPngAssetsSelected.education,
               unselectedIconPath: AppPngAssetsUnselected.education,
             ),
             TabIcon(
               isActive: currentIndex == 2,
-              onPress: () => onTap,
+              onPress: onTap,
               selectedIconPath: AppPngAssetsSelected.job,
               unselectedIconPath: AppPngAssetsUnselected.job,
             ),
             TabIcon(
               isActive: currentIndex == 3,
-              onPress: () => onTap,
+              onPress: onTap,
               selectedIconPath: AppPngAssetsSelected.skill,
               unselectedIconPath: AppPngAssetsUnselected.skill,
             ),
@@ -58,7 +61,7 @@ class TabIcon extends StatelessWidget {
   final String selectedIconPath;
   final String unselectedIconPath;
   final bool isActive;
-  final VoidCallback onPress;
+  final void Function(int) onPress;
 
   const TabIcon({
     super.key,
@@ -72,7 +75,7 @@ class TabIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: onPress,
+        onTap: () => onPress,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -89,7 +92,7 @@ class TabIcon extends StatelessWidget {
               child: Center(
                 child: SizedBox(
                   width: 22,
-                  child: SvgPicture.asset(
+                  child: Image.asset(
                     isActive ? selectedIconPath : unselectedIconPath,
                   ),
                 ),

@@ -1,14 +1,14 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/extension.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
-import 'package:portfolio/presentation/resources/string_res.dart';
 import 'package:portfolio/presentation/widgets/app_text.dart';
 
 class AppFilledButton extends StatelessWidget {
   final Color color;
+  final Color textColor;
+  final Color borderColor;
   final String text;
   final double radius;
+  final double borderWidth;
   final VoidCallback onTap;
 
   const AppFilledButton({
@@ -16,7 +16,10 @@ class AppFilledButton extends StatelessWidget {
     required this.color,
     required this.text,
     required this.onTap,
+    this.textColor = ColorRes.secondary,
+    this.borderColor = ColorRes.third,
     this.radius = 0.0,
+    this.borderWidth = 0.0,
   });
 
   @override
@@ -24,9 +27,15 @@ class AppFilledButton extends StatelessWidget {
     return FilledButton(
       onPressed: onTap,
       style: FilledButton.styleFrom(
-        backgroundColor: ColorRes.third,
+        backgroundColor: color,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+        side: BorderSide(
+          width: borderWidth,
+          color: borderColor,
+        ),
       ),
-      child: AppText(StringResHome.contactMeTitle.tr()),
-    ).borderRadiusAll(radius);
+      child: AppText(text, color: textColor),
+    );
   }
 }

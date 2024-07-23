@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
+import 'package:portfolio/presentation/resources/language_res.dart';
+
+extension FlexExpandExtension on Widget {
+  Widget onFlexible() => Flexible(child: this);
+  Widget onExpanded() => Expanded(child: this);
+}
+
+extension EmptySpace on num {
+  SizedBox get height => SizedBox(height: toDouble());
+  SizedBox get width => SizedBox(width: toDouble());
+}
 
 extension PaddingExtension on Widget {
   Widget padAll(double value) => Padding(
@@ -102,4 +113,15 @@ extension BorderRadiusExtension on Widget {
         ),
         child: this,
       );
+}
+
+extension LanguageTypeExtension on LanguageType {
+  String getValue() {
+    switch (this) {
+      case LanguageType.bahasa:
+        return bahasa;
+      case LanguageType.english:
+        return english;
+    }
+  }
 }

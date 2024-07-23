@@ -3,6 +3,7 @@ class StringResMain {
   static const String educationTitle = "education_title";
   static const String experienceTitle = "experience_title";
   static const String skillTitle = "skill_title";
+  static const String portfolioTitle = "portfolio_title";
 }
 
 class StringResHome {
@@ -10,6 +11,7 @@ class StringResHome {
   static const String contactMeTitle = "contact_me_title";
   static const String seeMyWorkTitle = "see_my_work_title";
   static const String introduceTitle = "introduce_title";
+  static const String latestProjectTitle = "latest_project_title";
 }
 
 class StringResEducation {

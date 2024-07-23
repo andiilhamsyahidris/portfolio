@@ -3,6 +3,7 @@
     "education_title": "Educations",
     "experience_title": "Experiences",
     "skill_title": "Skills",
+    "portfolio_title": "Portfolio",
     "greeting_title": "Hello! I'm",
     "contact_me_title": "Talk with me",
     "see_my_work_title": "See my works",
@@ -15,5 +16,6 @@
     "work_experience_title": "Work experience",
     "desc_job": "Developing mobile applications using the Flutter framework.",
     "certified_by_title": "Certified by",
-    "desc_skill": "Proficient in developing applications by implementing"
+    "desc_skill": "Proficient in developing applications by implementing",
+    "latest_project_title": "Latest Project"
 }
