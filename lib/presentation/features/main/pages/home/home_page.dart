@@ -2,28 +2,20 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/app_size.dart';
 import 'package:portfolio/app/extension.dart';
+import 'package:portfolio/presentation/features/main/pages/home/home_viewmodel.dart';
 import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
 import 'package:portfolio/presentation/resources/string_res.dart';
 import 'package:portfolio/presentation/widgets/app_filled_button.dart';
 import 'package:portfolio/presentation/widgets/app_project_card.dart';
 import 'package:portfolio/presentation/widgets/app_text.dart';
+import 'package:stacked/stacked.dart';
 
-class Homepage extends StatefulWidget {
+class Homepage extends StackedView<HomeViewModel> {
   const Homepage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget builder(BuildContext context, HomeViewModel viewModel, Widget? child) {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -59,7 +51,7 @@ class _HomepageState extends State<Homepage> {
                       color: ColorRes.third,
                       text: StringResHome.contactMeTitle.tr(),
                       radius: 8.0,
-                      onTap: () {},
+                      onTap: () => viewModel.sendEmail(),
                     ),
                     21.width,
                     AppFilledButton(
@@ -104,4 +96,7 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+
+  @override
+  HomeViewModel viewModelBuilder(BuildContext context) => HomeViewModel();
 }
