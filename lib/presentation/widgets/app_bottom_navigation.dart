@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/app_constant.dart';
 import 'package:portfolio/app/extension.dart';
 import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
@@ -23,28 +24,28 @@ class AppBottomNavigation extends StatelessWidget {
               selectedIconPath: AppPngAssetsSelected.home,
               unselectedIconPath: AppPngAssetsUnselected.home,
             ),
-            label: ""),
+            label: Constant.empty),
         BottomNavigationBarItem(
             icon: TabIcon(
               isActive: currentIndex == 1,
               selectedIconPath: AppPngAssetsSelected.education,
               unselectedIconPath: AppPngAssetsUnselected.education,
             ),
-            label: ""),
+            label: Constant.empty),
         BottomNavigationBarItem(
             icon: TabIcon(
               isActive: currentIndex == 2,
               selectedIconPath: AppPngAssetsSelected.job,
               unselectedIconPath: AppPngAssetsUnselected.job,
             ),
-            label: ""),
+            label: Constant.empty),
         BottomNavigationBarItem(
             icon: TabIcon(
               isActive: currentIndex == 3,
               selectedIconPath: AppPngAssetsSelected.skill,
               unselectedIconPath: AppPngAssetsUnselected.skill,
             ),
-            label: ""),
+            label: Constant.empty),
       ],
     ).borderRadiusOnly(
       topLeft: 12,

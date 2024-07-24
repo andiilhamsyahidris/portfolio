@@ -7,4 +7,5 @@ class Constant {
     Saya menghubungimu karena
   """;
   static const String schemeEmailUri = "mailto";
+  static const String empty = "";
 }

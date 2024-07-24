@@ -20,6 +20,7 @@ dependencies:
   get_it: ^7.7.0
   url_launcher: ^6.3.0
   flutter_email_sender: ^6.0.3
+  lottie: ^3.1.2
 
   cupertino_icons: ^1.0.6
 
@@ -39,7 +40,6 @@ flutter:
     - assets/images/png/selected/
     - assets/images/png/unselected/
     - assets/translations/
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+    - assets/anim/
+  
 

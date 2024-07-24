@@ -6,4 +6,5 @@ class ColorRes {
   static const Color third = Color(0xFF111111);
   static const Color textColorDark = Color(0xFF2D2724);
   static Color? dividerColor = Colors.grey[300];
+  static const Color errorColor = Color(0xFFDC3545);
 }

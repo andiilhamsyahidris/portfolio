@@ -4,6 +4,11 @@ class StringResMain {
   static const String experienceTitle = "experience_title";
   static const String skillTitle = "skill_title";
   static const String portfolioTitle = "portfolio_title";
+
+  static const String loadingTitle = "loading_title";
+  static const String closeTitle = "close_title";
+  static const String tryAgainTitle = "try_again_title";
+  static const String successTitle = "success_title";
 }
 
 class StringResHome {
