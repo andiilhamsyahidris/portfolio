@@ -3,17 +3,13 @@ import 'package:portfolio/app/app_constant.dart';
 import 'package:stacked/stacked.dart';
 
 class HomeViewModel extends BaseViewModel {
-  final String _errorMessage = "";
-  String get errorMessage => _errorMessage;
-
   void sendEmail() async {
     final Email email = Email(
-      recipients: [Constant.email],
+      recipients: [""],
       subject: Constant.subjectEmail,
       body: Constant.bodyEmail,
       isHTML: false,
     );
-
     await FlutterEmailSender.send(email);
   }
 }
