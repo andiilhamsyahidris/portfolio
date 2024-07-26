@@ -20,6 +20,7 @@ class AppPngAssets {
   static const String idID = "$pngPath/indonesia.png";
   static const String enUS = "$pngPath/united-states.png";
   static const String photo = "$pngPath/photo.png";
+  static const String trophy = "$pngPath/trophy.png";
 }
 
 class AppPngAssetsUnselected {

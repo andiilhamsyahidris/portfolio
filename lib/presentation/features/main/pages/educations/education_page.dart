@@ -1,7 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/extension.dart';
+import 'package:portfolio/presentation/resources/asset_res.dart';
+import 'package:portfolio/presentation/resources/color_res.dart';
 import 'package:portfolio/presentation/resources/string_res.dart';
+import 'package:portfolio/presentation/widgets/app_card.dart';
 import 'package:portfolio/presentation/widgets/app_text.dart';
 
 class EducationPage extends StatefulWidget {
@@ -26,6 +29,32 @@ class _EducationPageState extends State<EducationPage> {
               children: [
                 AppText.semiBold(
                   StringResMain.educationTitle.tr(),
+                  fontSize: 30,
+                ),
+                18.height,
+                AppCard(
+                  imageAsset: "",
+                  title: "Title Project",
+                  date: "August 2022",
+                  desc: "Deskripsi Project",
+                  children: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: ColorRes.secondary,
+                        child: Image.asset(
+                          AppPngAssets.trophy,
+                          width: 12,
+                        ),
+                      ),
+                      8.width,
+                      AppText.light(
+                        "August 2022",
+                        color: ColorRes.textColorDark,
+                      ),
+                    ],
+                  ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
                 ),
               ],
             ),
