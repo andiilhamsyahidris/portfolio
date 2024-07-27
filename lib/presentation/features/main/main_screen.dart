@@ -13,65 +13,8 @@ import 'package:portfolio/presentation/widgets/app_bottom_navigation.dart';
 import 'package:portfolio/presentation/widgets/app_text.dart';
 import 'package:stacked/stacked.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StackedView<MainViewModel> {
   const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return ViewModelBuilder.reactive(
-      viewModelBuilder: () => MainViewModel(),
-      builder: (context, viewModel, child) {
-        return Scaffold(
-          appBar: AppBar(
-            leading: AppText.semiBold(
-              StringResMain.portfolioTitle.tr(),
-              fontSize: 24.0,
-            ).padAll(12.0),
-            leadingWidth: getScreenWidth(200),
-            backgroundColor: ColorRes.secondary,
-            scrolledUnderElevation: 0,
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(2.0),
-              child: Container(
-                height: 1.5,
-                color: ColorRes.dividerColor,
-              ),
-            ),
-            actions: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Flexible(
-                    child: AppText.light(
-                      "Jakarta, Indonesia",
-                      fontSize: 10,
-                    ).padAll(8.0),
-                  ),
-                  Flexible(
-                    child: AppText.medium(
-                      "6:18:31 pm",
-                      fontSize: 10,
-                    ).padSymmetric(horizontal: 8.0),
-                  )
-                ],
-              ),
-            ],
-          ),
-          body: getViewForIndex(viewModel.currentIndex),
-          bottomNavigationBar: AppBottomNavigation(
-            currentIndex: viewModel.currentIndex,
-            onTap: viewModel.setIndex,
-          ),
-        );
-      },
-    );
-  }
 
   Widget getViewForIndex(int index) {
     switch (index) {
@@ -87,4 +30,60 @@ class _MainScreenState extends State<MainScreen> {
         return Container();
     }
   }
+
+  @override
+  void onViewModelReady(MainViewModel viewModel) {
+    viewModel.getCurrentUserPosition();
+    super.onViewModelReady(viewModel);
+  }
+
+  @override
+  Widget builder(BuildContext context, MainViewModel viewModel, Widget? child) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: AppText.semiBold(
+          StringResMain.portfolioTitle.tr(),
+          fontSize: 24.0,
+        ).padAll(12.0),
+        leadingWidth: getScreenWidth(200),
+        backgroundColor: ColorRes.secondary,
+        scrolledUnderElevation: 0,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(2.0),
+          child: Container(
+            height: 1.5,
+            color: ColorRes.dividerColor,
+          ),
+        ),
+        actions: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                child: AppText.light(
+                  viewModel.currentAddress ?? "",
+                  fontSize: 10,
+                ).padAll(8.0),
+              ),
+              Flexible(
+                child: AppText.medium(
+                  "6:18:31 pm",
+                  fontSize: 10,
+                ).padSymmetric(horizontal: 8.0),
+              )
+            ],
+          ),
+        ],
+      ),
+      body: getViewForIndex(viewModel.currentIndex),
+      bottomNavigationBar: AppBottomNavigation(
+        currentIndex: viewModel.currentIndex,
+        onTap: viewModel.setIndex,
+      ),
+    );
+  }
+
+  @override
+  MainViewModel viewModelBuilder(BuildContext context) => MainViewModel();
 }
