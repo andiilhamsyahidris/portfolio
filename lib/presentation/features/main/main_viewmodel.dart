@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -7,6 +8,9 @@ import 'package:stacked/stacked.dart';
 class MainViewModel extends IndexTrackingViewModel {
   String? _currentAddress;
   String? get currentAddress => _currentAddress;
+
+  String? _currentTime;
+  String? get currentTime => _currentTime;
 
   Future<void> getCurrentUserPosition() async {
     final hasPermission = await handleLocationPermission();
@@ -29,5 +33,12 @@ class MainViewModel extends IndexTrackingViewModel {
     }).catchError((e) {
       debugPrint(e);
     });
+  }
+
+  Future<void> getLocalTimezone() async {
+    var now = DateTime.now();
+    String time = DateFormat("hh:mm:ss a").format(now);
+    _currentTime = time;
+    rebuildUi();
   }
 }
