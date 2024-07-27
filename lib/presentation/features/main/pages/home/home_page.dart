@@ -6,8 +6,8 @@ import 'package:portfolio/presentation/features/main/pages/home/home_viewmodel.d
 import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
 import 'package:portfolio/presentation/resources/string_res.dart';
+import 'package:portfolio/presentation/widgets/app_card.dart';
 import 'package:portfolio/presentation/widgets/app_filled_button.dart';
-import 'package:portfolio/presentation/widgets/app_project_card.dart';
 import 'package:portfolio/presentation/widgets/app_text.dart';
 import 'package:stacked/stacked.dart';
 
@@ -81,10 +81,37 @@ class Homepage extends StackedView<HomeViewModel> {
                   fontSize: 18,
                 ).marginOnly(bottom: 24.0),
                 SizedBox(
-                  height: getScreenHeight(350),
+                  height: getScreenHeight(400),
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => const AppProjectCard(),
+                    itemBuilder: (context, index) => SizedBox(
+                      width: AppSizeConfig.screenWidth - 50,
+                      child: AppCard(
+                        headerImageAsset: "",
+                        title: "Title Project",
+                        date: "August 2022",
+                        desc: "Deskripsi Project",
+                        colorCard: ColorRes.secondary,
+                        children: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircleAvatar(
+                              radius: 12,
+                              backgroundColor: ColorRes.secondary,
+                              child: Image.asset(
+                                AppPngAssets.trophy,
+                                width: 12,
+                              ),
+                            ),
+                            8.width,
+                            AppText.light(
+                              "August 2022",
+                              color: ColorRes.textColorDark,
+                            ),
+                          ],
+                        ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
+                      ),
+                    ),
                     separatorBuilder: (context, index) => 12.width,
                     itemCount: 3,
                   ),

@@ -16,6 +16,10 @@ class AppSvgAssetsUnselected {
   static const String home = "$svgPathUnselected/uns-home.svg";
 }
 
+class AppSvgAssets {
+  static const String flutterLogo = "$svgPath/flutter.svg";
+}
+
 class AppPngAssets {
   static const String idID = "$pngPath/indonesia.png";
   static const String enUS = "$pngPath/united-states.png";

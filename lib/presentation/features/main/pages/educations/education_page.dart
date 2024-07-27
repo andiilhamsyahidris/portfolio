@@ -22,45 +22,37 @@ class _EducationPageState extends State<EducationPage> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            child: Column(
+          AppText.semiBold(
+            StringResMain.educationTitle.tr(),
+            fontSize: 30,
+          ),
+          18.height,
+          AppCard(
+            headerImageAsset: "",
+            title: "Title Project",
+            date: "August 2022",
+            desc: "Deskripsi Project",
+            children: Row(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppText.semiBold(
-                  StringResMain.educationTitle.tr(),
-                  fontSize: 30,
+                CircleAvatar(
+                  radius: 12,
+                  backgroundColor: ColorRes.secondary,
+                  child: Image.asset(
+                    AppPngAssets.trophy,
+                    width: 12,
+                  ),
                 ),
-                18.height,
-                AppCard(
-                  imageAsset: "",
-                  title: "Title Project",
-                  date: "August 2022",
-                  desc: "Deskripsi Project",
-                  children: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      CircleAvatar(
-                        radius: 12,
-                        backgroundColor: ColorRes.secondary,
-                        child: Image.asset(
-                          AppPngAssets.trophy,
-                          width: 12,
-                        ),
-                      ),
-                      8.width,
-                      AppText.light(
-                        "August 2022",
-                        color: ColorRes.textColorDark,
-                      ),
-                    ],
-                  ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
+                8.width,
+                AppText.light(
+                  "August 2022",
+                  color: ColorRes.textColorDark,
                 ),
               ],
-            ),
-          ).marginSymmetric(vertical: 34, horizontal: 18),
+            ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
+          ),
         ],
-      ),
+      ).marginSymmetric(vertical: 34, horizontal: 18),
     );
   }
 }
