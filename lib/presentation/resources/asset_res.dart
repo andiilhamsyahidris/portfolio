@@ -25,6 +25,11 @@ class AppPngAssets {
   static const String enUS = "$pngPath/united-states.png";
   static const String photo = "$pngPath/photo.png";
   static const String trophy = "$pngPath/trophy.png";
+  static const String flyerPetaniTambak = "$pngPath/flyer-petanitambak.png";
+  static const String flyerMpDetection = "$pngPath/flyer-mpdetection.png";
+  static const String flyerFlutter = "$pngPath/flyer-flutter.png";
+  static const String flyerFigma = "$pngPath/flyer-figma.png";
+  static const String flyerUnhas = "$pngPath/flyer-unhas.png";
 }
 
 class AppPngAssetsUnselected {
