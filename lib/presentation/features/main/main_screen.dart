@@ -34,7 +34,6 @@ class MainScreen extends StackedView<MainViewModel> {
   @override
   void onViewModelReady(MainViewModel viewModel) {
     viewModel.getCurrentUserPosition();
-    viewModel.getLocalTimezone();
     super.onViewModelReady(viewModel);
   }
 
@@ -63,13 +62,13 @@ class MainScreen extends StackedView<MainViewModel> {
             children: [
               Flexible(
                 child: AppText.light(
-                  viewModel.currentAddress ?? "",
+                  viewModel.currentAdministrativeArea ?? "",
                   fontSize: 10,
                 ).padAll(8.0),
               ),
               Flexible(
                 child: AppText.medium(
-                  viewModel.currentTime ?? "",
+                  viewModel.currentCountry ?? "",
                   fontSize: 10,
                 ).padSymmetric(horizontal: 8.0),
               )
