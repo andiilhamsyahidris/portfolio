@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/app_constant.dart';
 import 'package:portfolio/app/extension.dart';
 import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
@@ -28,10 +29,14 @@ class _EducationPageState extends State<EducationPage> {
           ),
           18.height,
           AppCard(
-            headerImageAsset: "",
-            title: "Title Project",
-            date: "August 2022",
-            desc: "Deskripsi Project",
+            headerImageAsset: EducationConstant
+                .educations[EducationConstant.keyImageEducation],
+            title: EducationConstant
+                .educations[EducationConstant.keyTitleEducation],
+            date: EducationConstant
+                .educations[EducationConstant.keyDateEducation],
+            desc: EducationConstant
+                .educations[EducationConstant.keyMajorEducation],
             children: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -45,7 +50,7 @@ class _EducationPageState extends State<EducationPage> {
                 ),
                 8.width,
                 AppText.light(
-                  "August 2022",
+                  "GPA ${EducationConstant.educations[EducationConstant.keyGpaEducation]}",
                   color: ColorRes.textColorDark,
                 ),
               ],

@@ -21,5 +21,6 @@
     "desc_job": "Developing mobile applications using the Flutter framework.",
     "certified_by_title": "Certified by",
     "desc_skill": "Proficient in developing applications by implementing",
-    "latest_project_title": "Latest Project"
+    "latest_project_title": "Latest Project",
+    "no_route_found_title": "No Route Found"
 }

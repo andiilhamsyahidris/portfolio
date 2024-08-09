@@ -9,6 +9,7 @@ class StringResMain {
   static const String closeTitle = "close_title";
   static const String tryAgainTitle = "try_again_title";
   static const String successTitle = "success_title";
+  static const String noRouteFoundTitle = "no_route_found_title";
 }
 
 class StringResHome {

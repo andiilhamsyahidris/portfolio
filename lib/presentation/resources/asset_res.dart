@@ -30,6 +30,7 @@ class AppPngAssets {
   static const String flyerFlutter = "$pngPath/flyer-flutter.png";
   static const String flyerFigma = "$pngPath/flyer-figma.png";
   static const String flyerUnhas = "$pngPath/flyer-unhas.png";
+  static const String flyerDigisign = "$pngPath/flyer-digisign.png";
 }
 
 class AppPngAssetsUnselected {

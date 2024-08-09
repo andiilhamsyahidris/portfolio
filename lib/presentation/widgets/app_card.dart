@@ -34,8 +34,11 @@ class AppCard extends StatelessWidget {
           withHeaderImage
               ? Stack(
                   children: [
-                    const Placeholder(
-                      fallbackHeight: 200,
+                    Image.asset(
+                      headerImageAsset ?? "",
+                      height: 200,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
                     Container(
                       height: 200,
@@ -63,7 +66,10 @@ class AppCard extends StatelessWidget {
               ),
             ],
           ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
-          AppText(desc).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
+          AppText(
+            desc,
+            overflow: TextOverflow.clip,
+          ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
           children ?? Container(),
         ],
       ),

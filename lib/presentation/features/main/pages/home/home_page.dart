@@ -1,10 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/app_constant.dart';
 import 'package:portfolio/app/app_size.dart';
 import 'package:portfolio/app/extension.dart';
 import 'package:portfolio/presentation/features/main/pages/home/home_viewmodel.dart';
 import 'package:portfolio/presentation/resources/asset_res.dart';
 import 'package:portfolio/presentation/resources/color_res.dart';
+import 'package:portfolio/presentation/resources/route_res.dart';
 import 'package:portfolio/presentation/resources/string_res.dart';
 import 'package:portfolio/presentation/widgets/app_card.dart';
 import 'package:portfolio/presentation/widgets/app_filled_button.dart';
@@ -55,12 +57,12 @@ class Homepage extends StackedView<HomeViewModel> {
                     ),
                     21.width,
                     AppFilledButton(
-                      color: ColorRes.secondary,
-                      textColor: ColorRes.third,
-                      text: StringResHome.seeMyWorkTitle.tr(),
-                      radius: 8.0,
-                      onTap: () {},
-                    ),
+                        color: ColorRes.secondary,
+                        textColor: ColorRes.third,
+                        text: StringResHome.seeMyWorkTitle.tr(),
+                        radius: 8.0,
+                        onTap: () => Navigator.of(context)
+                            .pushNamed(AppRoutes.mainRoute)),
                   ],
                 ).marginSymmetric(vertical: 18.0),
               ],
@@ -84,36 +86,22 @@ class Homepage extends StackedView<HomeViewModel> {
                   height: getScreenHeight(400),
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => SizedBox(
-                      width: AppSizeConfig.screenWidth - 50,
-                      child: AppCard(
-                        headerImageAsset: "",
-                        title: "Title Project",
-                        date: "August 2022",
-                        desc: "Deskripsi Project",
-                        colorCard: ColorRes.secondary,
-                        children: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircleAvatar(
-                              radius: 12,
-                              backgroundColor: ColorRes.secondary,
-                              child: Image.asset(
-                                AppPngAssets.trophy,
-                                width: 12,
-                              ),
-                            ),
-                            8.width,
-                            AppText.light(
-                              "August 2022",
-                              color: ColorRes.textColorDark,
-                            ),
-                          ],
-                        ).marginOnly(bottom: 16.0, left: 10.0, right: 10.0),
-                      ),
-                    ),
+                    itemBuilder: (context, index) {
+                      final data = ProjectConstant.projects[index];
+                      return SizedBox(
+                        width: AppSizeConfig.screenWidth - 50,
+                        child: AppCard(
+                          headerImageAsset:
+                              data[ProjectConstant.keyImageProject],
+                          title: data[ProjectConstant.keyTitleProject],
+                          date: data[ProjectConstant.keyDateProject],
+                          desc: data[ProjectConstant.keyDescProject],
+                          colorCard: ColorRes.secondary,
+                        ),
+                      );
+                    },
                     separatorBuilder: (context, index) => 12.width,
-                    itemCount: 3,
+                    itemCount: ProjectConstant.projects.length,
                   ),
                 ),
               ],
